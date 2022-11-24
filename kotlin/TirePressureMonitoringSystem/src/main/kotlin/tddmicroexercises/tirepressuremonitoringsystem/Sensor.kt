@@ -5,9 +5,13 @@ import java.util.*
 // The reading of the pressure value from the sensor is simulated in this implementation.
 // Because the focus of the exercise is on the other class.
 
-class Sensor {
+interface ISensor {
+  fun popNextPressurePsiValue(): Double
+}
 
-    fun popNextPressurePsiValue(): Double {
+class Sensor : ISensor {
+
+    override fun popNextPressurePsiValue(): Double {
         val pressureTelemetryValue: Double
         pressureTelemetryValue = samplePressure()
 
